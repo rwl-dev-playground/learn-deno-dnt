@@ -1,0 +1,15 @@
+scripts:
+  build:
+    desc: build npm modules
+    cmd: deno run scripts/npm-build.ts 0.1.0
+    allow:
+      - read
+      - write
+      - run
+      - env
+  lint:
+    desc: Lint code
+    cmd: deno lint --ignore=npm/
+  fmt:
+    desc: Format code
+    cmd: deno fmt --ignore=README.md,README_EN.md,npm/
