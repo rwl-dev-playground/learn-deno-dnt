@@ -1,4 +1,4 @@
-import { build } from "../deps.ts";
+import { build, ensureDir } from "../deps.ts";
 
 await build({
   entryPoints: ["./mod.ts"],
@@ -11,3 +11,9 @@ await build({
     version: Deno.args[0],
   },
 });
+
+await ensureDir("./npm/assets/");
+await Deno.copyFile(
+  "./_novel-support.scss",
+  "./npm/assets/_novel-support.scss",
+);
